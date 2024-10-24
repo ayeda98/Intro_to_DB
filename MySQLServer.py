@@ -3,7 +3,7 @@ from mysql.connector import Error
 
 def create_database():
     try:
-        # Connect to MySQL server
+        # Establish a connection to the MySQL server
         connection = mysql.connector.connect(
             host='localhost',  # Change if your MySQL server is not local
             user='your_username',  # Replace with your MySQL username
@@ -17,7 +17,8 @@ def create_database():
 
     except Error as e:
         print(f"Error: {e}")  # Print any connection or execution error
-
+    except mysql.connector.Error as mysql_error:
+        print(f"MySQL Error: {mysql_error}")  # Handle MySQL-specific errors
     finally:
         # Close the connection if it was established
         if 'connection' in locals() and connection.is_connected():
