@@ -15,10 +15,10 @@ email VARCHAR(215),
 address TEXT);
 
 CREATE TABLE Orders(order_id (PRIMARY KEY),
-customer_id (FOREIGN KEY REFERENCES Customers TABLE),
+customer_id (FOREIGN KEY REFERENCES Customers(customer_id)),
 order_date DATE);
 
 CREATE TABLE Order_Details (orderdetailid (PRIMARY KEY),
-order_id (FFOREIGN KEY REFERENCES Orders TABLE),
-book_id (FOREIGN KEY REFERENCES Books TABLE),
+order_id (FFOREIGN KEY REFERENCES Orders(Orders_id)),
+book_id (FOREIGN KEY REFERENCES Books(book_id)),
 quantity DOUBLE);
